@@ -25,7 +25,7 @@ public class AstonDevsTests {
     static void beforeAnyMainPageTest() {
         Configuration.remote = System.getProperty("farm_link");
         Configuration.browser = System.getProperty("browser", "chrome");
-        //Configuration.browserVersion = System.getProperty("version", "128.0");
+        Configuration.browserVersion = System.getProperty("version", "128.0");
         Configuration.browserSize = System.getProperty("resolution", "1920x1080");
         Configuration.baseUrl = "https://astondevs.ru/";
         Configuration.pageLoadStrategy = "eager";
