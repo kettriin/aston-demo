@@ -86,4 +86,16 @@ public class AstonDevsTests {
         String currentUrl = webdriver().driver().url();
         assertTrue(currentUrl.contains("about-us"));
     }
+
+    @DisplayName("Футер присутствует на странице")
+    @Test
+    public void mainPageWithFooter() {
+        assertTrue(mainPage.isFooterPresent());
+    }
+
+    @DisplayName("Футтер содержит ссылки")
+    @Test
+    public void smokeTest_FooterLinks() {
+        assertTrue(mainPage.footerLinksCounter() >= 1);
+    }
 }

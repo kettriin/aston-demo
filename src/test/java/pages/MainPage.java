@@ -12,8 +12,10 @@ import static com.codeborne.selenide.Selenide.$$;
 public class MainPage {
 
     ElementsCollection navigationPanelItem = $$("nav a, nav p");
+    ElementsCollection footerLinks = $$("footer a, [class*='footer'] a, [class*='Footer'] a");
     private final SelenideElement
             logo = $("img[alt='Logo']"),
+            footer = $("footer, [class*='footer']"),
             aboutButton = $(byText("О нас")),
             hideCoockieButton = $(byText("Подтверждаю")),
             navigationPanel = $("nav");
@@ -52,5 +54,13 @@ public class MainPage {
         aboutButton.click();
 
         return this;
+    }
+
+    public boolean isFooterPresent() {
+        return footer.exists();
+    }
+
+    public int footerLinksCounter() {
+        return footerLinks.size();
     }
 }
