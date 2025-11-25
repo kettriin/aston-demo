@@ -83,7 +83,7 @@ public class AstonDevsTests {
     @Test
     public void contactButtonRedirect() {
         mainPage.clickAboutButton();
-        sleep(3000);
+        sleep(5000);
         String currentUrl = webdriver().driver().url();
         assertTrue(currentUrl.contains("about-us"));
     }
