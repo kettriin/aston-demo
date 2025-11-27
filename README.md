@@ -91,5 +91,5 @@ gradle clean main_page_smoke_demo -Dbrowser="chrome" -Dversion="128.0" -Dresolut
 
 В отчетах Allure для каждого теста прикреплен не только скриншот, но и видео прохождения теста
 <p align="center">
-  <img title="Selenoid Video" src="media/screens/video.gif">
+  <img title="Selenoid Video" src="media/video.gif">
 </p>
