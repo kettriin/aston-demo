@@ -1,8 +1,9 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import helpers.Attach;
+import helpers.TestBase;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -44,15 +45,13 @@ public class AstonDevsTests {
         open("/");
         mainPage.hideCoockie();
     }
-    @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
 
-        closeWebDriver();
+    @AfterEach
+    void afterEachTest() {
+        TestBase.addAttachments();
+        Selenide.closeWebDriver();
     }
+
 
     @DisplayName("Лого присутствует на главной")
     @Test
@@ -65,7 +64,7 @@ public class AstonDevsTests {
             "Карьера", "ASTON медиа", "О нас"
     })
     @ParameterizedTest(name = "В шапке отображается информационный раздел {0}")
-    void navItemsVisibleInHeader(String navItem){
+    void navItemsVisibleInHeader(String navItem) {
         mainPage.navigationPanelIsVisiable();
         mainPage.navItemsVisibleInHeader(navItem);
     }
@@ -75,7 +74,7 @@ public class AstonDevsTests {
             "О нас, https://astondevs.ru/about-us"
     })
     @ParameterizedTest(name = "В шапке информационный раздел {0} содержит ссылку {1}")
-    void navItemsLinks(String navItem, String expectedLink){
+    void navItemsLinks(String navItem, String expectedLink) {
         mainPage.navItemsHaveLinks(navItem, expectedLink);
     }
 
