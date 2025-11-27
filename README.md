@@ -85,7 +85,6 @@ gradle clean main_page_smoke_demo -Dbrowser="chrome" -Dversion="128.0" -Dresolut
 
 <p align="center">
 <img width="70%" title="Telegram Notifications" src="media/bot.png">
-<img width="70%" title="Telegram Notifications" src="media/bot2.png">
 </p>
 
 ### 🎥 Видео примера запуска тестов
