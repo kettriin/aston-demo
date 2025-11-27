@@ -43,6 +43,7 @@ public class AstonDevsTests {
     void beforeEachTest() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         open("/");
+        sleep(8000);
         mainPage.hideCoockie();
     }
 
