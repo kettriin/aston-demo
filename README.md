@@ -1,4 +1,20 @@
-# Aston Demo Project
+<div align="center">
+  
+# Проект автоматизации тестирования для AstonDevs <img title="Jenkins Build" src="https://storage.yandexcloud.net/prod.astonsite.s3backet/aston-redisign/common/icons/AstonIcon.svg">
+## 🔗 Ссылки
+
+### 🌐 **Официальный сайт**
+[![AstonDevs](https://img.shields.io/badge/AstonDevs-Website-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://astondevs.ru/)
+
+### 🛠 **Jenkins**
+[![Jenkins](https://img.shields.io/badge/Jenkins-Build-orange?style=for-the-badge&logo=jenkins&logoColor=white)](https://jenkins.autotests.cloud/job/aston-demo/)
+
+### 📊 **Allure Report**
+[![Allure Report](https://img.shields.io/badge/Allure-Report-red?style=for-the-badge&logo=testrail&logoColor=white)](https://jenkins.autotests.cloud/job/aston-demo/4/allure/)
+
+</div>
+
+## 🚀 О проекте
 
 [![Java](https://img.shields.io/badge/Java-17-red?logo=java)](https://www.java.com/)
 [![Selenide](https://img.shields.io/badge/Selenide-6.19.1-blue)](https://selenide.org/)
