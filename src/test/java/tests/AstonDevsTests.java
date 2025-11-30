@@ -1,18 +1,12 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import helpers.TestBase;
-import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import pages.AboutUsPage;
 import pages.MainPage;
-
-import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -24,24 +18,13 @@ public class AstonDevsTests {
 
     @BeforeAll
     static void beforeAnyMainPageTest() {
-        Configuration.remote = System.getProperty("farm_link");
-        Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("version", "128.0");
-        Configuration.browserSize = System.getProperty("resolution", "1920x1080");
-        Configuration.baseUrl = "https://astondevs.ru/";
-        Configuration.pageLoadStrategy = "eager";
-
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
-        Configuration.browserCapabilities = capabilities;
+        TestBase.defaultConfig();
+        TestBase.defaultCapabilities();
     }
 
     @BeforeEach
     void beforeEachTest() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+        TestBase.addListener();
         open("/");
         sleep(8000);
         mainPage.hideCoockie();
@@ -82,10 +65,9 @@ public class AstonDevsTests {
     @DisplayName("Переход на страницу \"О нас\"")
     @Test
     public void contactButtonRedirect() {
-        mainPage.clickAboutButton();
+        AboutUsPage aboutUsPage = mainPage.clickAboutUsButton();
         sleep(5000);
-        String currentUrl = webdriver().driver().url();
-        assertTrue(currentUrl.contains("about-us"));
+        assertTrue(aboutUsPage.isOnAboutUsPage());
     }
 
     @DisplayName("Футер присутствует на странице")
