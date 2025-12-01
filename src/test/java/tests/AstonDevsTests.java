@@ -1,41 +1,19 @@
 package tests;
 
-import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import pages.AboutUsPage;
-import pages.MainPage;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.sleep;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Тесты на блоки и содержание главной страницы")
 @Tag("MAIN_PAGE_CONTENT")
-public class AstonDevsTests {
-    MainPage mainPage = new MainPage();
-
-    @BeforeAll
-    static void beforeAnyMainPageTest() {
-        TestBase.defaultConfig();
-        TestBase.defaultCapabilities();
-    }
-
-    @BeforeEach
-    void beforeEachTest() {
-        TestBase.addListener();
-        open("/");
-        sleep(8000);
-        mainPage.hideCoockie();
-    }
-
-    @AfterEach
-    void afterEachTest() {
-        TestBase.addAttachments();
-        Selenide.closeWebDriver();
-    }
-
+public class AstonDevsTests extends TestBase {
 
     @DisplayName("Лого присутствует на главной")
     @Test
